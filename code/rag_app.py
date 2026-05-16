@@ -331,7 +331,8 @@ def main():
             st.session_state.retriever = retriever
             st.session_state.chunk_count = chunk_count
 
-    st.success(f"✅ Document ready! **{uploaded_file.name}** indexed into **{st.session_state.chunk_count} chunks**.")
+    if "chunk_count" in st.session_state:
+        st.success(f"✅ Document ready! **{uploaded_file.name}** indexed into **{st.session_state.chunk_count} chunks**.")
 
     # ── Chat ──
     st.markdown("---")
